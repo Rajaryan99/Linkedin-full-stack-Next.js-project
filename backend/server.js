@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
 import mongoose from 'mongoose';
+import postsRoutes from './routes/posts.routes.js'
 
 
 const app = express();
@@ -11,10 +12,12 @@ app.use(express.json());
 
 const port = process.env.PORT;
 
-app.get('/', (req, res) => {
-    res.send('Hello World')
-})
+// app.get('/', (req, res) => {
+//     res.send('Hello World')
+// })
 
+
+app.use(postsRoutes)
 
 const connectDB = async () => {
     try {
