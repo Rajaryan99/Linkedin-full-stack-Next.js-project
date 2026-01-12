@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
+import mongoose from 'mongoose';
 
 
 const app = express();
@@ -14,6 +15,22 @@ app.get('/', (req, res) => {
     res.send('Hello World')
 })
 
-app.listen(port, () => {
-    console.log(`server is running on http://localhost:${port}`)
-})
+
+const connectDB = async () => {
+    try {
+
+        const DB = await mongoose.connect(`${process.env.MONGODB_URL}`)
+        console.log('Database connected Successfully!')
+
+        app.listen(port, () => {
+
+            console.log(`server is running on http://localhost:${port}`)
+        })
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+connectDB();
