@@ -19,6 +19,7 @@ const port = process.env.PORT;
 
 app.use(postsRoutes)
 
+
 const connectDB = async () => {
     try {
 

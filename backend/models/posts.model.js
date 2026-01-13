@@ -1,0 +1,27 @@
+import mongoose from "mongoose";
+
+const postSchema = mongoose.Schema({
+    userId: {
+        
+    },
+    likes: {
+        
+    },
+    createdAt: {
+        
+    },
+    updatedAt: {
+        
+    },
+    media: {
+        
+    },
+
+    active: {
+        
+    },
+
+    fileType: {
+        
+    }
+})
